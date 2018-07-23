@@ -153,16 +153,10 @@ static error_t args_parse_entry(int key, char arg[], struct argp_state *state)
 
 	switch (key) {
 	case 'd':
-		if (!arg)
-			args->dir = state->argv[state->next];
-		else
-			args->dir = arg;
+		args->dir = (!arg) ? state->argv[state->next] : arg;
 		break;
 	case 'q':
-		if (!arg)
-			args->query = state->argv[state->next];
-		else
-			args->query = arg;
+		args->query = (!arg) ? state->argv[state->next] : arg;
 		break;
 	case 'Q':
 		args->isquiet = true;
